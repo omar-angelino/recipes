@@ -75,7 +75,7 @@ task('slack:notify:failure', function () {
         'mrkdwn_in' => ['text'],
     ];
 
-    Httpie::post(get('slack_webhook'))->body(['channel' => get('slack_channel', false),'attachments' => [$attachment]])->send();
+    Httpie::post(get('slack_webhook'))->body(['channel' => get('slack_channel', false), 'attachments' => [$attachment]])->send();
 })
     ->once()
     ->shallow()
