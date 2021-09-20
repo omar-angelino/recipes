@@ -37,7 +37,7 @@ task('slack:notify', function () {
         'mrkdwn_in' => ['text'],
     ];
 
-    Httpie::post(get('slack_webhook'))->body(['attachments' => [$attachment]])->send();
+    Httpie::post(get('slack_webhook'))->body(['channel' => get('slack_channel', false), 'attachments' => [$attachment]])->send();
 })
     ->once()
     ->shallow()
@@ -56,7 +56,7 @@ task('slack:notify:success', function () {
         'mrkdwn_in' => ['text'],
     ];
 
-    Httpie::post(get('slack_webhook'))->body(['attachments' => [$attachment]])->send();
+    Httpie::post(get('slack_webhook'))->body(['channel' => get('slack_channel', false), 'attachments' => [$attachment]])->send();
 })
     ->once()
     ->shallow()
@@ -75,7 +75,7 @@ task('slack:notify:failure', function () {
         'mrkdwn_in' => ['text'],
     ];
 
-    Httpie::post(get('slack_webhook'))->body(['attachments' => [$attachment]])->send();
+    Httpie::post(get('slack_webhook'))->body(['channel' => get('slack_channel', false),'attachments' => [$attachment]])->send();
 })
     ->once()
     ->shallow()
