@@ -1,5 +1,8 @@
 # Changelog
 
+### Added
+- Added the ability to set slack channel
+
 ### Fixed
 
 - Adding the ability to pick a release from the 4.X cachetool family, which works with PHP >=7.1
